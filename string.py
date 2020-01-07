@@ -1,3 +1,6 @@
 a=input("Enter a string:- ")
-a=" ,".join(a)
+a=" , ".join(a)
 print(a)
+b=input("Enter second string:- ")
+b=", ".join(b)
+print(b)
