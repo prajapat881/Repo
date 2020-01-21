@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>
+
+        <record id="staff_info_form_view" model="ir.ui.view">
+            <field name="name">Staff Information form view</field>
+            <field name="model">staff.info</field>
+            <field name="arch" type="xml">
+                <form string="Staff Information">
+                    <header>
+                        <button name="button_done" string="Done" class="oe_highlight" type="object"
+                                attrs="{'invisible': [('state', '=', 'done')]}"/>
+                        <button name="button_draft" string="Draft"
+                                attrs="{'invisible': ['|',('state', '=', 'done'),('state', '=', 'draft')]}"
+                                class="oe_highlight"
+                                type="object"/>
+                        <button name="button_cancel" string="Reject"
+                                attrs="{'invisible': ['|',('state', '=', 'done'),('state', '=', 'cancel')]}"
+                                type="object"/>
+                        <field name="state" widget="statusbar" clickable="True"/>
+                    </header>
+
+                    <sheet>
+                        <group col="5">
+                            <field name="name"/>
+                            <field name="staff_post"/>
+                        </group>
+                        <group col="5">
+                            <field name="staff_pan"/>
+                            <field name="staff_mobile"/>
+                        </group>
+                        <group col="5">
+                            <field name="staff_image"/>
+                            <field name="bank_staff_id" options="{'no_create':True,'no_open':True}"/>
+                            <field name="ifsc_code"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="staff_info_list_view" model="ir.ui.view">
+            <field name="name">Staff Information list view</field>
+            <field name="model">staff.info</field>
+            <field name="arch" type="xml">
+                <tree string="Staff Information">
+                    <field name="name"/>
+                    <field name="staff_post"/>
+                    <field name="staff_pan"/>
+                    <field name="staff_mobile"/>
+                    <field name="bank_staff_id"/>
+                    <field name="ifsc_code"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="staff_info_kanban_view" model="ir.ui.view">
+            <field name="name">Staff Information list view</field>
+            <field name="model">staff.info</field>
+            <field name="arch" type="xml">
+                <kanban string="Staff Information">
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <ul>
+                                    <li>
+                                        <field name="name"/>
+                                    </li>
+                                    <li>
+                                        <field name="staff_post"/>
+                                    </li>
+                                    <li>
+                                        <field name="staff_pan"/>
+                                    </li>
+                                    <li>
+                                        <field name="staff_mobile"/>
+                                    </li>
+                                    <li>
+                                        <field name="bank_staff_id"/>
+                                    </li>
+                                    <li>
+                                        <field name="ifsc_code"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="action_staff _info" model="ir.actions.act_window">
+            <field name="name">Staff Informationn</field>
+            <field name="res_model">staff.info</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+        </record>
+
+        <menuitem id="bank_mgmt_staff" name="Staff Information" parent="bank_mgmt_sub" action="action_staff _info"/>
+
+    </data>
+</flectra>

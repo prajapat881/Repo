@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>
+
+        <record id="customer_info_form_view" model="ir.ui.view">
+            <field name="name">Customer Information form view</field>
+            <field name="model">customer.info</field>
+            <field name="arch" type="xml">
+                <form string="Customer Information">
+                    <header>
+                        <button name="button_done" string="Done" class="oe_highlight" type="object"
+                                attrs="{'invisible': [('state', '=', 'done')]}"/>
+                        <button name="button_draft" string="Draft"
+                                attrs="{'invisible': ['|',('state', '=', 'done'),('state', '=', 'draft')]}"
+                                class="oe_highlight"
+                                type="object"/>
+                        <button name="button_cancel" string="Cancel"
+                                attrs="{'invisible': ['|',('state', '=', 'done'),('state', '=', 'cancel')]}"
+                                type="object"/>
+                        <field name="state" widget="statusbar" clickable="True"/>
+                    </header>
+
+                    <sheet>
+                        <group col="5">
+                            <field name="name"/>
+                            <field name="customer_pan"/>
+                            <field name="customer_aadhar"/>
+                        </group>
+                        <group col="5">
+                            <field name="customer_mobile"/>
+                            <field name="customer_email"/>
+                            <field name="customer_bank_ids"
+                                   widget="many2many_tags" options="{'no_create':True,'no_open':True}"/>
+                            <field name="customer_image"/>
+                        </group>
+                        <group col="2">
+                            <div class="oe_right oe_button_box">
+                                <button type="object"
+                                        name="compute_customer"
+                                        string="Bank Count  ">
+                                </button>
+                            </div>
+                            <div class="col-md-2">
+                                <field name="total_bank"/>
+                            </div>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="customer_info_list_view" model="ir.ui.view">
+            <field name="name">Customer Information list view</field>
+            <field name="model">customer.info</field>
+            <field name="arch" type="xml">
+                <tree string="Customer Information" import="false">
+
+                    <field name="total_bank"/>
+                    <field name="name"/>
+                    <field name="customer_pan"/>
+                    <field name="customer_aadhar"/>
+                    <field name="customer_mobile"/>
+                    <field name="customer_email"/>
+                    <field name="customer_bank_ids" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="customer_info_kanban_view" model="ir.ui.view">
+            <field name="name">Customer Information list view</field>
+            <field name="model">customer.info</field>
+            <field name="arch" type="xml">
+                <kanban string="Customer Information">
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <li>
+                                    <field name="name"/>
+                                </li>
+                                <li>
+                                    <field name="customer_pan"/>
+                                </li>
+                                <li>
+                                    <field name="customer_aadhar"/>
+                                </li>
+                                <li>
+                                    <field name="customer_mobile"/>
+                                </li>
+                                <li>
+                                    <field name="customer_bank_ids" widget="many2many_tags"/>
+                                </li>
+                                <li>
+                                    <field name="customer_email"/>
+                                </li>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="action_customer_info" model="ir.actions.act_window">
+            <field name="name">Customer Inforamation</field>
+            <field name="res_model">customer.info</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+        </record>
+
+        <menuitem id="bank_mgmt_sub" name="Bank" web_icon="bank_mgmt,static/description/icon.png"/>
+        <menuitem id="bank_mgmt_info" name="Customer Information" parent="bank_mgmt_sub"
+                  action="action_customer_info"/>
+
+
+    </data>
+</flectra>

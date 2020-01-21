@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>
+
+        <record id="bank_info_form_view" model="ir.ui.view">
+            <field name="name">Bank Information form view</field>
+            <field name="model">bank.info</field>
+            <field name="arch" type="xml">
+                <form string="Bank Information">
+                    <header>
+                        <button name="button_done" string="Done" class="oe_highlight" type="object"
+                                attrs="{'invisible': [('state', '=', 'done')]}"/>
+                        <button name="button_draft" string="Draft"
+                                attrs="{'invisible': ['|',('state', '=', 'done'),('state', '=', 'draft')]}"
+                                class="oe_highlight"
+                                type="object"/>
+                        <button name="button_cancel" string="Reject"
+                                attrs="{'invisible': ['|',('state', '=', 'done'),('state', '=', 'cancel')]}"
+                                type="object"/>
+                        <field name="state" widget="statusbar" clickable="True"/>
+                    </header>
+
+                    <sheet>
+                        <group col="5">
+                            <field name="name"/>
+                            <field name="bank_registration_no"/>
+                            <field name="bank_ifsc_code"/>
+                        </group>
+                        <group col="5">
+                            <field name="bank_mobile"/>
+                            <field name="bank_address"/>
+                        </group>
+
+                        <group col="9" string="Bank Employees">
+                            <field name="staff_bank_line" nolabel="1">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="staff_post"/>
+                                    <field name="bank_staff_id"/>
+                                </tree>
+                            </field>
+                        </group>
+                        <group>
+                            <div class="oe_right oe_button_box">
+                                <button type="object"
+                                        name="compute_customer"
+                                        string="staff Count "/>
+                                <div class="col-md-3">
+                                    <field name="staff_number"/>
+                                </div>
+                            </div>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="bank_info_list_view" model="ir.ui.view">
+            <field name="name">Bank Information list view</field>
+            <field name="model">bank.info</field>
+            <field name="arch" type="xml">
+
+                <tree string="Bank Information" import="false">
+                    <field name="name"/>
+                    <field name="bank_registration_no"/>
+                    <field name="bank_ifsc_code"/>
+                    <field name="bank_mobile"/>
+                    <field name="bank_address"/>
+                    <field name="staff_bank_line"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="customer_info_kanban_view" model="ir.ui.view">
+            <field name="name">Bank Information list view</field>
+            <field name="model">bank.info</field>
+            <field name="arch" type="xml">
+                <kanban string="Bank Information">
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <ul>
+                                    <li>
+                                        <field name="name"/>
+                                    </li>
+                                    <li>
+                                        <field name="bank_registration_no"/>
+                                    </li>
+                                    <li>
+                                        <field name="bank_ifsc_code"/>
+                                    </li>
+                                    <li>
+                                        <field name="bank_mobile"/>
+                                    </li>
+                                    <li>
+                                        <field name="bank_address"/>
+                                    </li>
+                                    <li>
+                                        <field name="staff_bank_line"/>
+                                    </li>
+                                </ul>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="action_bank _info" model="ir.actions.act_window">
+            <field name="name">Bank Informationn</field>
+            <field name="res_model">bank.info</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,kanban,form</field>
+        </record>
+
+        <menuitem id="bank_mgmt_bank" name="Bank Information" parent="bank_mgmt_sub" action="action_bank _info"/>
+
+
+    </data>
+</flectra>
