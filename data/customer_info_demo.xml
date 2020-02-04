@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data noupdate="1">
+        <record id="customer_info_demo" model="customer.info">
+            <field name="total_bank">01</field>
+            <field name="name">Ravi</field>
+            <field name="customer_pan">DFSDDS54DSF</field>
+            <field name="customer_aadhar">79465</field>
+            <field name="customer_mobile">978461</field>
+            <field name="customer_email">dsfdscs</field>
+        </record>
+        <record model="bank.info" id="bank_info">
+            <field name="customer_bank_id" ref="bank_info_demo"></field>
+        </record>
+
+    </data>
+</flectra>

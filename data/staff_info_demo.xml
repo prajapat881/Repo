@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data noupdate="1">
+        <record id="staff_info_demo" model="staff.info">
+            <field name="hand">01</field>
+            <field name="name">Rahul</field>
+            <field name="staff_post">Manager</field>
+            <field name="staff_pan">FSADF55DFf</field>
+            <field name="staff_mobile">154684</field>
+            <field name="ifsc_code">dsfsdds</field>
+        </record>
+<!--        <record model="bank.info" id="bank">-->
+<!--            <field name="bank_staff_id" ref="bank_info_demo"></field>-->
+<!--        </record>-->
+    </data>
+</flectra>

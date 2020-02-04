@@ -29,16 +29,23 @@
                         <group col="5">
                             <field name="customer_mobile"/>
                             <field name="customer_email"/>
-                            <field name="customer_bank_ids"
-                                   widget="many2many_tags" options="{'no_create':True,'no_open':True}"/>
+                            <field name="date"/>
+                            <field name="customer_bank_ids" widget="many2many_tags"
+                                   options="{'no_create':True,'no_open':True}"/>
                             <field name="customer_image"/>
+                        </group>
+
+<!--                        <group>-->
+<!--                            <div class="oe_right oe_button_box">-->
+<!--                                <button type="object" name="create_bank" string="Bank Details"></button>-->
+<!--                            </div>-->
+<!--                        </group>-->
+                        <group col="6">
+                            <button name="%(action_bank _info)d" type="action" string="Bank info"/>
                         </group>
                         <group col="2">
                             <div class="oe_right oe_button_box">
-                                <button type="object"
-                                        name="compute_customer"
-                                        string="Bank Count  ">
-                                </button>
+                                <button type="object" name="compute_customer" string="Bank Count"></button>
                             </div>
                             <div class="col-md-2">
                                 <field name="total_bank"/>
@@ -54,7 +61,6 @@
             <field name="model">customer.info</field>
             <field name="arch" type="xml">
                 <tree string="Customer Information" import="false">
-
                     <field name="total_bank"/>
                     <field name="name"/>
                     <field name="customer_pan"/>
@@ -66,11 +72,91 @@
             </field>
         </record>
 
+        <!--        ______________-->
+        <!--        Search View-->
+        <!--        _______________-->
+
+        <record id="view_filter_customer_info_" model="ir.ui.view">
+            <field name="name">Customer Information Search view</field>
+            <field name="model">customer.info</field>
+            <field name="priority">15</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="customer_bank_ids"/>
+                    <field name="name"/>
+                    <filter string="Draft" name="default" domain="[('state','=','draft')]"/>
+                    <filter string="Accepted" domain="[('state','=','done')]"/>
+                    <filter string="Cancel" domain="[('state','=','cancel')]"/>
+                </search>
+            </field>
+        </record>
+
+        <!--        _______________ -->
+        <!--        Pivot View     -->
+        <!--        _______________-->
+
+        <record id="view_pivot_customer_info" model="ir.ui.view">
+            <field name="name">Customer Information Pivot view</field>
+            <field name="model">customer.info</field>
+            <field name="arch" type="xml">
+                <pivot string="Project Tasks">
+                    <field name="name" type="row"/>
+                    <field name="customer_pan" type="col"/>
+                </pivot>
+            </field>
+        </record>
+
+        <!--        ______________-->
+        <!--        Calendar View-->
+        <!--        _______________-->
+
+        <record id="view_calendar_customer_info" model="ir.ui.view">
+            <field name="model">customer.info</field>
+            <field name="arch" type="xml">
+                <calendar string="Customer Create" date_start="date" event_open_popup="true" mode="month" color="name">
+                    <field name="name"/>
+                    <field name="customer_mobile"/>
+                </calendar>
+            </field>
+        </record>
+
+        <!--        ______________-->
+        <!--        Kanban View-->
+        <!--        _______________-->
+
         <record id="customer_info_kanban_view" model="ir.ui.view">
             <field name="name">Customer Information list view</field>
             <field name="model">customer.info</field>
             <field name="arch" type="xml">
                 <kanban string="Customer Information">
+                    <field name="name"/>
+                    <field name="customer_image"/>
+
+
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="oe_kanban_details">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <div class="o_kanban_image">
+                                                <img t-att-src="kanban_image('test.test','customer_image',record.id.raw_value)"
+                                                     alt="Image"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <strong>
+                                                <field name="name"/>
+                                            </strong>
+                                            <div name="tags"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+
+
                     <templates>
                         <t t-name="kanban-box">
                             <div class="oe_kanban_global_click">
@@ -103,12 +189,12 @@
             <field name="name">Customer Inforamation</field>
             <field name="res_model">customer.info</field>
             <field name="view_type">form</field>
-            <field name="view_mode">tree,kanban,form</field>
+            <field name="view_mode">tree,pivot,calendar,kanban,form</field>
+            <field name="context">{'search_default_default': 1}</field>
         </record>
 
-        <menuitem id="bank_mgmt_sub" name="Bank" web_icon="bank_mgmt,static/description/icon.png"/>
-        <menuitem id="bank_mgmt_info" name="Customer Information" parent="bank_mgmt_sub"
-                  action="action_customer_info"/>
+
+        <menuitem id="bank_mgmt_info" name="Customer Information" parent="bank_mgmt_sub" action="action_customer_info"/>
 
 
     </data>

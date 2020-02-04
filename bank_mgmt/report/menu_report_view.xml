@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+    <data>
+        <report
+            id="action_report_complaint"
+            model="bank.info"
+            string="Bank Report"
+            report_type="qweb-html"
+            name="bank_mgmt.report_bank"
+            file="bank_mgmt.report_bank"
+        />
+    </data>
+</flectra>

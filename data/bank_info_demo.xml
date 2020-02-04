@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data noupdate="1">
+        <record id="bank_info_demo" model="bank.info">
+            <field name="name">sbibank</field>
+            <field name="bank_registration_no">100</field>
+            <field name="bank_ifsc_code">dsadsad</field>
+            <field name="bank_mobile">549871000002</field>
+            <field name="bank_address">India</field>
+        </record>
+        <record model="staff.info" id="staff_info">
+            <field name="staff_bank_line" ref="staff_info_demo"></field>
+        </record>
+
+        <record model="customer.info" id="customer_info">
+            <field name="customer_bank_line" ref="customer_info_demo"></field>
+        </record>
+
+    </data>
+</flectra>

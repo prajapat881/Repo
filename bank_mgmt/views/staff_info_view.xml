@@ -22,6 +22,7 @@
 
                     <sheet>
                         <group col="5">
+                            <field name="hand"/>
                             <field name="name"/>
                             <field name="staff_post"/>
                         </group>
@@ -44,6 +45,7 @@
             <field name="model">staff.info</field>
             <field name="arch" type="xml">
                 <tree string="Staff Information">
+                    <field name="hand" widget="handle"/>
                     <field name="name"/>
                     <field name="staff_post"/>
                     <field name="staff_pan"/>
@@ -51,6 +53,27 @@
                     <field name="bank_staff_id"/>
                     <field name="ifsc_code"/>
                 </tree>
+            </field>
+        </record>
+
+        <!--        ______________-->
+        <!--        Search View-->
+        <!--        _______________-->
+
+        <record id="view_filter_staff_info_" model="ir.ui.view">
+            <field name="name">Staff Information Search view</field>
+            <field name="model">staff.info</field>
+            <field name="priority">15</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="bank_staff_id"/>
+                    <field name="name"/>
+                    <filter string="Draft" domain="[('state','=','draft')]"/>
+                    <filter string="Accepted" name="default" domain="[('state','=','done')]"/>
+                    <filter string="Cancel" domain="[('state','=','cancel')]"/>
+                    <!--                    <separator/>-->
+<!--                    <filter string="By Bank" context="{'name': 'customer_bank_ids'}"/>-->
+                </search>
             </field>
         </record>
 
@@ -63,11 +86,12 @@
                         <t t-name="kanban-box">
                             <div class="oe_kanban_global_click">
                                 <ul>
+                                    <img><field name="staff_image" width="80" height="100" widget="image"/> </img>
                                     <li>
-                                        <field name="name"/>
+                                        Name :<field name="name"/>
                                     </li>
                                     <li>
-                                        <field name="staff_post"/>
+                                        Post :  <field name="staff_post"/>
                                     </li>
                                     <li>
                                         <field name="staff_pan"/>
@@ -81,6 +105,7 @@
                                     <li>
                                         <field name="ifsc_code"/>
                                     </li>
+
                                 </ul>
                             </div>
                         </t>
@@ -94,6 +119,7 @@
             <field name="res_model">staff.info</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,kanban,form</field>
+            <field name="context">{'search_default_default': 1}</field>
         </record>
 
         <menuitem id="bank_mgmt_staff" name="Staff Information" parent="bank_mgmt_sub" action="action_staff _info"/>

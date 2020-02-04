@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<flectra>
+    <data>
+        <template id="report_bank">
+            <t t-call="web.html_container">
+                <t t-call="web.external_layout">
+                    <t t-foreach="docs" t-as="o">
+                        <div class="page">
+                            <br></br>
+                            <h2>Bank Report</h2>
+                            <div class="table table-bordered">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Name</th>
+                                            <th>IFSC Code</th>
+                                            <th>Mobile No</th>
+                                            <th>Address</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td>
+                                                <span t-field="o.name"/>
+                                            </td>
+                                            <td>
+                                                <span t-field="o.bank_ifsc_code"/>
+                                            </td>
+                                            <td>
+                                                <span t-field="o.bank_mobile"/>
+                                            </td>
+                                            <td>
+                                                <span t-field="o.bank_address"/>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                             <h2>Staff</h2>
+                            <div class="table table-bordered">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Post</th>
+                                            <th>Pan No.</th>
+                                            <th>Mobile</th>
+                                            <th>IFSC Code</th>
+                                        </tr>
+                            <tr t-foreach='o.staff_bank_line' t-as='line'>
+                                <td>
+                                    <span t-esc="line.name"/>
+                                </td>
+                                <td>
+                                    <span t-esc="line.staff_post"/>
+                                </td>
+                                <td>
+                                    <span t-esc="line.staff_pan"/>
+                                </td>
+                                <td>
+                                    <span t-esc="line.staff_mobile"/>
+                                </td>
+                                <td>
+                                    <span t-esc="line.ifsc_code"/>
+                                </td>
+                            </tr>
+
+                                    </thead>
+                                </table>
+                            </div>
+
+
+                            <h2 style="padding:300px">Customer</h2>
+                            <div class="table table-bordered">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Aadhar</th>
+                                            <th>Pan No.</th>
+                                            <th>Mobile</th>
+                                            <th>Gmail</th>
+                                        </tr>
+                            <tr t-foreach='o.customer_bank_line' t-as='line'>
+                                <td>
+                                    <span t-esc="line.name"/>
+                                </td>
+                                <td>
+                                    <span t-esc="line.customer_aadhar"/>
+                                </td>
+                                <td>
+                                    <span t-esc="line.customer_pan"/>
+                                </td>
+                                <td>
+                                    <span t-esc="line.customer_mobile"/>
+                                </td>
+                                <td>
+                                    <span t-esc="line.customer_email"/>
+                                </td>
+                            </tr>
+
+                                    </thead>
+                                </table>
+                            </div>
+
+
+                        </div>
+                    </t>
+
+                </t>
+            </t>
+        </template>
+    </data>
+</flectra>
