@@ -6,11 +6,11 @@
             <field name="parent_id" ref="website.main_menu"/>
             <field name="sequence" type="int">15</field>
         </record>
-         <record id="page_menu" model="website.menu">
+        <record id="page_menu" model="website.menu">
             <field name="name">New Staff</field>
             <field name="url">/staff/form</field>
             <field name="parent_id" ref="website.main_menu"/>
-            <field name="sequence" type="int">14</field>
+            <field name="sequence" type="int">11</field>
         </record>
     </data>
 </flectra>

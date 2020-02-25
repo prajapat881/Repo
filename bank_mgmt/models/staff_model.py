@@ -23,7 +23,6 @@ class StaffInfo(models.Model):
     @api.onchange("bank_staff_id")
     def _compute_customer(self):
         self.ifsc_code = self.bank_staff_id.bank_ifsc_code
-        print("Customer count")
 
     total_staff = fields.Integer("")
     name = fields.Char("Name")

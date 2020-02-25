@@ -2,16 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="150d6a43-9b63-4470-b068-371a0bb96146" name="Default Changelist" comment="access rights add">
-      <change afterPath="$PROJECT_DIR$/controller/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/controller/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/new_customer_form_view.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/new_staff_form_view.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/website_menu_view.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/src/js/script.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/__manifest__.py" beforeDir="false" afterPath="$PROJECT_DIR$/__manifest__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/customer_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/customer_models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/staff_models.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/staff_models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/controller/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/staff_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/staff_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/new_staff_form_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/views/new_staff_form_view.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/website_menu_view.xml" beforeDir="false" afterPath="$PROJECT_DIR$/views/website_menu_view.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +32,7 @@
   <component name="ProjectId" id="1WYN0Xf75rLUjRF3gHCdGkRdGuA" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="false" id="Update" />
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -113,6 +111,7 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.csv" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="access rights add" />
     <option name="LAST_COMMIT_MESSAGE" value="access rights add" />
   </component>
@@ -149,10 +148,10 @@
       <screen x="65" y="24" width="1301" height="744" />
     </state>
     <state x="488" y="303" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/65.24.1301.744@65.24.1301.744" timestamp="1581076714730" />
-    <state x="65" y="24" width="707" height="744" key="find.popup" timestamp="1582607188714">
+    <state x="65" y="24" width="707" height="744" key="find.popup" timestamp="1582616815770">
       <screen x="65" y="24" width="1301" height="744" />
     </state>
-    <state x="65" y="24" width="707" height="744" key="find.popup/65.24.1301.744@65.24.1301.744" timestamp="1582607188714" />
+    <state x="65" y="24" width="707" height="744" key="find.popup/65.24.1301.744@65.24.1301.744" timestamp="1582616815770" />
     <state x="378" y="89" width="672" height="678" key="search.everywhere.popup" timestamp="1581489690268">
       <screen x="65" y="24" width="1301" height="744" />
     </state>
