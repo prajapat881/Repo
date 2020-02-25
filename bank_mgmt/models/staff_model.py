@@ -3,7 +3,8 @@ from flectra import api, fields, models
 
 class StaffInfo(models.Model):
     _name = "staff.info"
-    _order='hand'
+    _order = 'hand'
+
     @api.multi
     def button_done(self):
         for rec in self:
@@ -28,15 +29,14 @@ class StaffInfo(models.Model):
     name = fields.Char("Name")
     staff_post = fields.Char("Post")
     staff_pan = fields.Char("Pan no")
-    staff_mobile = fields.Integer("Mobile No",size=12)
+    staff_mobile = fields.Integer("Mobile No", size=12)
     staff_image = fields.Binary("Image")
     ifsc_code = fields.Char('IFSC Code')
     bank_staff_id = fields.Many2one("bank.info", string="Bank")
     state = fields.Selection([('draft', 'Draft'), ('done', 'Accept'),
                               ('cancel', 'Reject')], default='draft')
-    hand=fields.Integer("Sequence")
+    hand = fields.Integer("Sequence")
 
-    _sql_constraints = [
-        ('staff_info_staff_pan', 'UNIQUE (staff_pan)', 'Pan No. must be unique!'),
-    ]
-
+# _sql_constraints = [
+#     ('staff_info_staff_pan', 'UNIQUE (staff_pan)', 'Pan No. must be unique!'),
+# ]

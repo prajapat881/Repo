@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+    <data>
+        <template id="newstaff" name="Staff Form">
+            <t t-call="website.layout">
+                <div id="wrap">
+                    <div class="container">
+                        <div class="col-md-8">
+                            <form action="/staff/form/submit">
+                                <div class="form-group">
+                                    <label for="name">NAME:</label>
+                                    <input type="text" class="form-control o_website_form_input" name="name"
+                                           required="true"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="staff_pan">PAN NO.:</label>
+                                    <input type="text" class="form-control o_website_form_input" name="staff_pan"
+                                           required="true"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="staff_mobile">MOBILE NO:</label>
+                                    <input type="text" class="form-control o_website_form_input" name="staff_mobile"
+                                           required="true"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="staff_post">POST:</label>
+                                    <input type="text" class="form-control o_website_form_input" name="staff_post"
+                                           required="true"/>
+                                </div>
+                                <div id="group_permit" t-attf-class="form-group">
+                                    <label for="bank_staff">Bank</label>
+                                    <ul class="list-group">
+                                        <select class="form-control" name="bank_staff_id">
+                                            <t t-foreach="bank_id" t-as="bank">
+                                                <option t-attf-value="#{bank.id}">
+                                                    <t t-esc="bank.name"/>
+                                                </option>
+
+                                            </t>
+                                        </select>
+                                    </ul>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Create</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+        <template id="newstaff_form" name="Staff Successfully Created">
+            <t t-call="website.layout">
+                <div id="wrap">
+                    <div class="container">
+                        <div class="col-md-8">
+                            <div class="alert alert-success">
+                                Staff Successfully Created.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</flectra>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flectra>
+    <data>
+        <template id="newcustomer" name="Partner Form">
+            <t t-call="website.layout">
+                <div id="wrap">
+                    <div class="container">
+                        <div class="col-md-8">
+                            <form action="/customer/form/submit">
+                                <div class="form-group">
+                                    <label for="name">NAME:</label>
+                                    <input type="text" class="form-control o_website_form_input" name="name"
+                                           required="true"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="customer_pan">PAN NO.:</label>
+                                    <input type="text" class="form-control o_website_form_input" name="customer_pan"
+                                           required="true"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="customer_aadhar">AADHAR NO.:</label>
+                                    <input type="text" class="form-control o_website_form_input" name="customer_aadhar"
+                                           required="true"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="customer_mobile">MOBILE NO:</label>
+                                    <input type="text" class="form-control o_website_form_input" name="customer_mobile"
+                                           required="true"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="customer_email">GMAIL ID:</label>
+                                    <input type="email" class="form-control o_website_form_input" name="customer_email"
+                                           required="true"/>
+                                </div>
+                                <div id="group_permit" t-attf-class="form-group">
+                                    <label for="customer_bank_ids">Bank</label>
+                                    <ul class="list-group">
+                                        <t t-foreach="bank_ids" t-as="banks">
+                                            <li class="list-group-item">
+                                                <input type="checkbox" class="mail_list_checkbox"
+                                                       name="customer_bank"
+                                                       t-att-value="banks.id"/>
+                                                <t t-esc="banks.name"/>
+                                            </li>
+                                        </t>
+                                    </ul>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Create</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+        <template id="newcustomer_form" name="Customer Successfully Created">
+            <t t-call="website.layout">
+                <div id="wrap">
+                    <div class="container">
+                        <div class="col-md-8">
+                            <div class="alert alert-success">
+                                Customer Successfully Created.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</flectra>

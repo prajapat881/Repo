@@ -1,0 +1,16 @@
+<flectra>
+    <data>
+        <record id="page_menu" model="website.menu">
+            <field name="name">New Customer</field>
+            <field name="url">/customer/form</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">15</field>
+        </record>
+         <record id="page_menu" model="website.menu">
+            <field name="name">New Staff</field>
+            <field name="url">/staff/form</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">14</field>
+        </record>
+    </data>
+</flectra>
